@@ -10,7 +10,7 @@ function onCastSpell(creature, variant, isHotkey)
 	if targetItem and not targetItem:isCreature() then
 		local desintegrate = false
 		while not desintegrate
-			and not isInArray(dead_human, targetItem:getId())
+			and not table.contains(dead_human, targetItem:getId())
 			and targetItem:getType():isMovable()
 			and targetItem:getUniqueId() > 65535
 			and targetItem:getActionId() == 0

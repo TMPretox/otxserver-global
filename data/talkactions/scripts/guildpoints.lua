@@ -80,7 +80,7 @@ function onSay(cid, words, param)
                 db.query('UPDATE `accounts` SET `guild_points` = `guild_points` + ' .. config.pointAmount .. ', `guild_points_stats` = ' .. os.time() .. ' WHERE `id` IN (' .. table.concat(validAccounts, ',') .. ');')
                 for i = 1, #members do
                         local member = members[i]
-                        if isInArray(validAccounts, member:getAccountId()) then
+                        if table.contains(validAccounts, member:getAccountId()) then
                                 member:sendTextMessage(MESSAGE_INFO_DESCR, 'You received ' .. config.pointAmount .. ' guild points.')
                         end
                 end

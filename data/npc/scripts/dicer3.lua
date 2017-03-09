@@ -115,12 +115,12 @@ function creatureSayCallback(cid, type, msg)
         posplayer = {x = 32518, y = 32465, z = 7} -- 32518, 32465, 7
                 local ppos = getPlayerPosition(cid)
         if ppos.x == posplayer.x and ppos.y == posplayer.y then
-        if isInArray({"H", "HIGH", "high", "h"}, msg) then
+        if table.contains({"H", "HIGH", "high", "h"}, msg) then
                         ROLL = HIGH
-                elseif  isInArray({"L", "LOW", "l", "low"}, msg) then
+                elseif  table.contains({"L", "LOW", "l", "low"}, msg) then
                         ROLL = LOW            
 						
-						elseif  isInArray({"play", "game", "info"}, msg) then
+						elseif  table.contains({"play", "game", "info"}, msg) then
 doCreatureSay(npc, "Ola, vamos jogar? low ou high? Sendo Low=1,2,3 e High=4,5,6.", TALKTYPE_SAY, false, 0)  
 
                 else

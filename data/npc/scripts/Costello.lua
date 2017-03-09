@@ -59,7 +59,7 @@ local function creatureSayCallback(cid, type, msg)
 		player:setStorageValue(Storage.TibiaTales.RestInHallowedGround.Questline, 2)
 		npcHandler:say('Ohh, why didn\'t you tell me before? Sure you get some holy water if it\'s for Amanda! Here you are.', cid)
 		npcHandler.topic[cid] = 0
-	elseif msgcontains(msg, 'no') and isInArray({1, 2}, npcHandler.topic[cid]) then
+	elseif msgcontains(msg, 'no') and table.contains({1, 2}, npcHandler.topic[cid]) then
 		npcHandler:say('Uhm, as you wish.', cid)
 		npcHandler.topic[cid] = 0
 	end

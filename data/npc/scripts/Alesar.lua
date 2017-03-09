@@ -25,7 +25,7 @@ local function creatureSayCallback(cid, type, msg)
 				}, cid)
 				npcHandler.topic[cid] = 1
 
-			elseif isInArray({1, 2}, missionProgress) then
+			elseif table.contains({1, 2}, missionProgress) then
 				npcHandler:say('Did you find the tear of Daraman?', cid)
 				npcHandler.topic[cid] = 2
 			else

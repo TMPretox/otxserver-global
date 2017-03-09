@@ -18,7 +18,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	if isInArray({"addon", "armor"}, msg) then
+	if table.contains({"addon", "armor"}, msg) then
 		if player:getStorageValue(Storage.OutfitQuest.WarriorShoulderAddon) == 5 then
 			player:setStorageValue(Storage.OutfitQuest.WarriorShoulderAddon, 6)
 			player:setStorageValue(Storage.OutfitQuest.WarriorShoulderTimer, os.time() + (player:getSex() == PLAYERSEX_FEMALE and 3600 or 7200))

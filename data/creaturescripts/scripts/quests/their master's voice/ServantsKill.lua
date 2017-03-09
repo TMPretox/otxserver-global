@@ -67,7 +67,7 @@ function onKill(creature, target)
 		return true
 	end
 
-	if not isInArray(servants, targetMonster:getName():lower()) then
+	if not table.contains(servants, targetMonster:getName():lower()) then
 		return true
 	end
 

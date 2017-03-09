@@ -139,6 +139,8 @@ function getCreatureOutfit(cid) local c = Creature(cid) return c ~= nil and c:ge
 function getCreatureSpeed(cid) local c = Creature(cid) return c ~= nil and c:getSpeed() or false end
 function getCreatureBaseSpeed(cid) local c = Creature(cid) return c ~= nil and c:getBaseSpeed() or false end
 
+function isInArray(array, value) return table.contains(array, value) end
+
 function getCreatureTarget(cid)
 	local c = Creature(cid)
 	if c ~= nil then

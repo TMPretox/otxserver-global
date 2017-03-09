@@ -12,7 +12,7 @@ local function creatureSayCallback(cid, type, msg)
 		return false
 	end
 	local player = Player(cid)
-	if isInArray({"soft boots", "repair", "soft", "boots"}, msg) then
+	if table.contains({"soft boots", "repair", "soft", "boots"}, msg) then
 		npcHandler:say("Do you want to repair your worn soft boots for 10000 gold coins?", cid)
 		npcHandler.topic[cid] = 1
 	elseif msgcontains(msg, 'yes') and npcHandler.topic[cid] == 1 then

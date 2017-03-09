@@ -94,7 +94,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	if isInArray({"yes", "help", "ok"}, msg) then
+	if table.contains({"yes", "help", "ok"}, msg) then
 		if storeTalkCid[cid] == 1 then
 			npcHandler:say("Very well. Just choose an outfit and a colour combination that suits you. You can open this dialogue anytime by right-clicking on yourself and selecting 'Set Outfit'. Just try it and then talk to me again!", cid)
 			player:setStorageValue(Storage.RookgaardTutorialIsland.CarlosNpcGreetStorage, 2)

@@ -81,7 +81,7 @@ local function creatureSayCallback(cid, type, msg)
 	end
 
 	local player = Player(cid)
-	if isInArray({"yes", "right", "ok"}, msg) then
+	if table.contains({"yes", "right", "ok"}, msg) then
 		if storeTalkCid[cid] == 0 then
 			npcHandler:say("Great, please go to my house, just a few steps south of here. Upstairs in my room, you'll find a chest. You can keep what you find inside of it! Come back after you got it and greet me to talk to me again. {Yes}?", cid)
 			Position(32033, 32277, 6):sendMagicEffect(CONST_ME_TUTORIALARROW)

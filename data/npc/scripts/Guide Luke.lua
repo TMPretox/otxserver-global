@@ -27,7 +27,7 @@ local function creatureSayCallback(cid, type, msg)
 		return false
 	end
 	local player = Player(cid)
-	if isInArray({"map", "marks"}, msg) then
+	if table.contains({"map", "marks"}, msg) then
 		npcHandler:say("Would you like me to mark locations like - for example - the depot, bank and shops on your map?", cid)
 		npcHandler.topic[cid] = 1
 	elseif msgcontains(msg, "yes") and npcHandler.topic[cid] == 1 then

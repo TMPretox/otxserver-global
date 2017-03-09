@@ -35,7 +35,7 @@ function doNpcSellItem(cid, itemId, amount, subType, ignoreCap, inBackpacks, bac
 		local container, itemType, b = Game.createItem(backpack, 1), ItemType(backpack), 1
 		for i = 1, amount do
 			local item = container:addItem(itemId, subType)
-			if isInArray({(itemType:getCapacity() * b), amount}, i) then
+			if table.contains({(itemType:getCapacity() * b), amount}, i) then
 				if player:addItemEx(container, ignoreCap) ~= RETURNVALUE_NOERROR then
 					b = b - 1
 					break

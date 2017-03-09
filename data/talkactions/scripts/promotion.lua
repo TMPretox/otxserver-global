@@ -10,7 +10,7 @@ local disabledVocations = {0}
 config.premium = getBooleanFromString(config.premium)
  
 function onSay(cid, words, param)
-if(isInArray(disabledVocations, getPlayerVocation(cid)) == TRUE) then
+if(table.contains(disabledVocations, getPlayerVocation(cid)) == TRUE) then
 doPlayerSendCancel(cid, "Your vocation cannot buy promotion.")
 elseif(config.premium == TRUE and isPremium(cid) == FALSE) then
 doPlayerSendCancel(cid, "Voce precisa ser donate para comprar promotion.")

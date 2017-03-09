@@ -19,7 +19,7 @@ local function creatureSayCallback(cid, type, msg)
 		return false
 	end
 	local player = Player(cid)
-	if isInArray({"vial", "ticket", "bonus", "deposit"}, msg) then
+	if table.contains({"vial", "ticket", "bonus", "deposit"}, msg) then
 		if player:getStorageValue(Storage.OutfitQuest.MageSummoner.AddonBelt) < 1 then
 			npcHandler:say("We have a special offer right now for depositing vials. Are you interested in hearing it?", cid)
 			npcHandler.topic[cid] = 1

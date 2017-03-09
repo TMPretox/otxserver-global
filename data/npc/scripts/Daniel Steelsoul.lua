@@ -16,7 +16,7 @@ local function creatureSayCallback(cid, type, msg)
 		return false
 	end
 	local player = Player(cid)
-	if isInArray({"fuck", "idiot", "asshole", "ass", "fag", "stupid", "tyrant", "shit", "lunatic"}, msg) then
+	if table.contains({"fuck", "idiot", "asshole", "ass", "fag", "stupid", "tyrant", "shit", "lunatic"}, msg) then
 		npcHandler:say("Take this!", cid)
 		player:getPosition():sendMagicEffect(CONST_ME_EXPLOSIONAREA)
 		player:addCondition(condition)

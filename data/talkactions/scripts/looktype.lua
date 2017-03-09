@@ -22,7 +22,7 @@
 	for i = 2, c do
 		result[i] = startNum+(i-1)
 	end
-	if not isInArray(result, endNum) then
+	if not table.contains(result, endNum) then
 		result[#result+1] = endNum
 	end
 	if differ then

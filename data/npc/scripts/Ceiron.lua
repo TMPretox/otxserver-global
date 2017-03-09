@@ -12,7 +12,7 @@ local function creatureSayCallback(cid, type, msg)
 		return false
 	end
 	local player = Player(cid)
-	if isInArray({"addon", "outfit"}, msg) then
+	if table.contains({"addon", "outfit"}, msg) then
 		if player:getStorageValue(Storage.OutfitQuest.DruidHatAddon) < 1 then
 			npcHandler:say("What are you thinking! I would never allow you to slay my beloved friends for the sake of your narcism. Only {Faolan} can grant you a fur like this one.", cid)
 			npcHandler.topic[cid] = 2
@@ -26,7 +26,7 @@ local function creatureSayCallback(cid, type, msg)
 			player:setStorageValue(Storage.OutfitQuest.DruidHatAddon, 9)
 			npcHandler.topic[cid] = 0
 		end
-	elseif isInArray({"griffinclaw", "container"}, msg) then
+	elseif table.contains({"griffinclaw", "container"}, msg) then
 		if player:getStorageValue(Storage.OutfitQuest.DruidHatAddon) == 1 then
 			npcHandler:say("Were you able to obtain a sample of the Griffinclaw?", cid)
 			npcHandler.topic[cid] = 5

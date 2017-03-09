@@ -101,7 +101,7 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "no") then
 		if npcHandler.topic[cid] == 1 then
 			npcHandler:say("Then no.", cid)
-		elseif isInArray({2, 3, 4}, npcHandler.topic[cid]) then
+		elseif table.contains({2, 3, 4}, npcHandler.topic[cid]) then
 			npcHandler:say("This deal sounded too good to be true anyway.", cid)
 		end
 		npcHandler.topic[cid] = 0

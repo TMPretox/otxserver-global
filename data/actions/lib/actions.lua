@@ -85,8 +85,8 @@ local function revertCask(position)
 	end
 end
 
-function onDestroyItem(player, item, fromPosition, target, toPosition, isHotkey)
-	if not target or type(target) ~= "userdata" or not target:isItem() then
+function DestroyItem(player, item, fromPosition, target, toPosition, isHotkey)
+	if type(target) ~= "userdata" or not target:isItem() then
 		return false
 	end
 
@@ -147,7 +147,7 @@ function onUseRope(player, item, fromPosition, target, toPosition, isHotkey)
 
 	local tile = Tile(toPosition)
 	local ground = tile:getGround()
-	if ground and isInArray(ropeSpots, ground.itemid) or tile:getItemById(14435) then
+	if ground and table.contains(ropeSpots, ground.itemid) or tile:getItemById(14435) then
 		player:teleportTo(toPosition:moveUpstairs())
 		if targetId == 8592 then
 			if player:getStorageValue(Storage.RookgaardTutorialIsland.tutorialHintsStorage) < 22 then
@@ -155,7 +155,7 @@ function onUseRope(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 		end
 		return true
-	elseif isInArray(holeId, targetId) then
+	elseif table.contains(holeId, targetId) then
 		toPosition.z = toPosition.z + 1
 		tile = Tile(toPosition)
 		if tile then
@@ -176,11 +176,11 @@ end
 
 function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetId, targetActionId = target.itemid, target.actionid
-	if isInArray(holes, targetId) then
+	if table.contains(holes, targetId) then
 		target:transform(targetId + 1)
 		target:decay()
 
-	elseif isInArray({231, 9059}, targetId) then
+	elseif table.contains({231, 9059}, targetId) then
 		local rand = math.random(100)
 		if target.actionid == 100 and rand <= 20 then
 			target:transform(489)
@@ -239,7 +239,7 @@ function onUseShovel(player, item, fromPosition, target, toPosition, isHotkey)
 			end
 		end
 
-	elseif isInArray({9632, 20230, 17672, 18586, 18580}, targetId) then
+	elseif table.contains({9632, 20230, 17672, 18586, 18580}, targetId) then
 		if player:getStorageValue(Storage.SwampDiggingTimeout) >= os.time() then
 			toPosition:sendMagicEffect(CONST_ME_POFF)
 			return false
@@ -288,7 +288,7 @@ end
 
 function onUsePick(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetId, targetActionId = target.itemid, target.actionid
-	if isInArray({354, 355}, targetId) and (target:hasAttribute(ITEM_ATTRIBUTE_UNIQUEID) or target:hasAttribute(ITEM_ATTRIBUTE_ACTIONID)) then
+	if table.contains({354, 355}, targetId) and (target:hasAttribute(ITEM_ATTRIBUTE_UNIQUEID) or target:hasAttribute(ITEM_ATTRIBUTE_ACTIONID)) then
 		target:transform(392)
 		target:decay()
 		toPosition:sendMagicEffect(CONST_ME_POFF)
@@ -470,13 +470,13 @@ end
 	
 function onUseMachete(player, item, fromPosition, target, toPosition, isHotkey)
 	local targetId = target.itemid
-	if isInArray(JUNGLE_GRASS, targetId) then
+	if table.contains(JUNGLE_GRASS, targetId) then
 		target:transform(targetId == 19433 and 19431 or targetId - 1)
 		target:decay()
 		return true
 	end
 
-	if isInArray(WILD_GROWTH, targetId) then
+	if table.contains(WILD_GROWTH, targetId) then
 		toPosition:sendMagicEffect(CONST_ME_POFF)
 		target:remove()
 		return true
@@ -486,7 +486,7 @@ function onUseMachete(player, item, fromPosition, target, toPosition, isHotkey)
 end
 
 function onUseCrowbar(player, item, fromPosition, target, toPosition, isHotkey)
-	if not isInArray({2416, 10515}, item.itemid) then
+	if not table.contains({2416, 10515}, item.itemid) then
 		return false
 	end
 
@@ -619,7 +619,7 @@ function onUseSpoon(player, item, fromPosition, target, toPosition, isHotkey)
 end
 
 function onUseScythe(player, item, fromPosition, target, toPosition, isHotkey)
-	if not isInArray({2550, 10513}, item.itemid) then
+	if not table.contains({2550, 10513}, item.itemid) then
 		return false
 	end
 	
@@ -641,7 +641,7 @@ function onUseScythe(player, item, fromPosition, target, toPosition, isHotkey)
 end
 
 function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHotkey)
-	if not isInArray({2566, 10511, 10515}, item.itemid) then
+	if not table.contains({2566, 10511, 10515}, item.itemid) then
 		return false
 	end
 
@@ -727,7 +727,7 @@ function onUseKitchenKnife(player, item, fromPosition, target, toPosition, isHot
 		player:addItem(8109, 1)
 		toPosition:sendMagicEffect(CONST_ME_BLOCKHIT)
 
-	elseif isInArray(fruits, targetId) and player:removeItem(6278, 1) then
+	elseif table.contains(fruits, targetId) and player:removeItem(6278, 1) then
 		target:remove(1)
 		player:addItem(6279, 1)
 		player:getPosition():sendMagicEffect(CONST_ME_MAGIC_GREEN)

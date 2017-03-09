@@ -20,7 +20,7 @@ local function creatureSayCallback(cid, type, msg)
 		return false
 	end
 	local player = Player(cid)
-	if isInArray({'addon', 'outfit'}, msg) then
+	if table.contains({'addon', 'outfit'}, msg) then
 		if player:getStorageValue(Storage.OutfitQuest.DruidHatAddon) == 9 then
 			npcHandler:say('I can see in your eyes that you are a honest and friendly person, |PLAYERNAME|. You were patient enough to learn our language and I will grant you a special gift. Will you accept it?', cid)
 			npcHandler.topic[cid] = 1
