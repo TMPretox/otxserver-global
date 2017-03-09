@@ -25,13 +25,13 @@ loginProtocolPort = 7171
 gameProtocolPort = 7172
 statusProtocolPort = 7171
 maxPlayers = 0
-motd = "Welcome to The Forgotten Server!"
+motd = "Welcome to The OTX Global Server!"
 onePlayerOnlinePerAccount = true
 allowClones = false
-serverName = "Forgotten"
+serverName = "OTX-Global"
 statusTimeout = 5 * 1000
 replaceKickOnLogin = true
-maxPacketsPerSecond = 25
+maxPacketsPerSecond = 1500
 
 -- Version Manual
 clientVersionMin = 1098
@@ -64,8 +64,8 @@ timeBetweenExActions = 1000
 
 -- Map
 -- NOTE: set mapName WITHOUT .otbm at the end
-mapName = "forgotten"
-mapAuthor = "Komic"
+mapName = "global"
+mapAuthor = "cipsoft"
 
 -- Market
 marketOfferDuration = 30 * 24 * 60 * 60
@@ -75,9 +75,9 @@ maxMarketOffersAtATimePerPlayer = 100
 
 -- MySQL
 mysqlHost = "127.0.0.1"
-mysqlUser = "forgottenserver"
+mysqlUser = "root"
 mysqlPass = ""
-mysqlDatabase = "forgottenserver"
+mysqlDatabase = "global"
 mysqlPort = 3306
 mysqlSock = ""
 
@@ -89,7 +89,7 @@ maxMessageBuffer = 4
 emoteSpells = true
 classicEquipmentSlots = false
 allowWalkthrough = true
-coinPacketSize = 25
+coinPacketSize = 1500
 coinImagesURL = "http://some.url/images/store/"
 
 -- Rates
@@ -118,7 +118,7 @@ defaultPriority = "high"
 startupDatabaseOptimization = true
 
 -- Status server information
-ownerName = "Mattyx14"
-ownerEmail = "darkylive@live.com.mx"
-url = "http://darkkonia.sytes.net/"
-location = "Mexico"
+ownerName = "Malucooo"
+ownerEmail = "e_nunes@live.com"
+url = "http://www.github.com/malucooo/otxserver-global/"
+location = "Brazil"
