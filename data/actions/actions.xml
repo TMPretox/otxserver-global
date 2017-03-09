@@ -48,7 +48,6 @@
 
 <action actionid="37412" script="rew.lua"/>
 <action itemid="22542" script="string of mending.lua"/>
-<action itemid="24739" script="wolfamulet.lua"/>
 <action itemid="7418" script="lions.lua"/>
 <action itemid="7428" script="nailcase.lua"/>
 <action itemid="7449" script="golem.lua"/>
@@ -61,8 +60,8 @@
 	<action itemid="23422" script="other/oramond_elevador.lua" />
 	<action itemid="23429" script="other/oramond_elevador.lua" />
 	<action fromaid="22840" toaid="22841" script="other/oramond_elevador.lua"/>
-	<action itemid="22845" script="other/oramond_tp.lua"/>
-	<action itemid="22846" script="other/oramond_tp.lua"/>
+	<!--<action itemid="22845" script="other/oramond_tp.lua"/>
+	<action itemid="22846" script="other/oramond_tp.lua"/>-->
 	<action itemid="23669" script="other/oramond_bueros.lua"/>
 	<action itemid="23668" script="other/oramond_escadas.lua"/>
 	<action itemid="22944" script="other/teleportwest2.lua"/>
@@ -284,8 +283,8 @@
 	<action uniqueid="3164" script="quests/children of the revolution/Mission3ZeeKillingFieldzzChest.lua" />
 	<action itemid="10760" 	script="quests/children of the revolution/Mission3ZeeKillingFieldzzPoisonWater.lua" />
 	<action itemid="11106" script="quests/children of the revolution/Mission4ZzeWayofZztonezzLevers.lua" />
-	<action itemid="11106" 	script="quests/children of the revolution/Mission4ZzeWayofZztonezzGreaseOil.lua" />
-	--><action uniqueid="3170" script="quests/children of the revolution/ZalamonDoor.lua" />
+	<!--<action itemid="11106" 	script="quests/children of the revolution/Mission4ZzeWayofZztonezzGreaseOil.lua" />-->
+	<action uniqueid="3170" script="quests/children of the revolution/ZalamonDoor.lua" />
 
 	<!-- Wrath of the Emperor -->
 	<action itemid="12284" script="quests/wrath of the emperor/Mission01Crate.lua" />
@@ -413,7 +412,7 @@
 	<action uniqueid="3143" script="gnomebase/crystalWarzone1.lua"/>
 	
 	<action fromuid="3124" touid="3127" script="quests/bigfoot burden/music.lua" />
-	<action uniqueid="3143" script="quests/bigfoot burden/warzones.lua" />
+	<!--<action uniqueid="3143" script="quests/bigfoot burden/warzones.lua" />-->
 	<action fromuid="3147" touid="3150" script="quests/bigfoot burden/rewards.lua" />
 	<action itemid="18213" script="quests/bigfoot burden/extractor.lua" />
 	<action itemid="18219" script="quests/bigfoot burden/crystal.lua" />
@@ -438,7 +437,7 @@
 	<action uniqueid="3046" script="quests/dreamer challenge/documentsLever4.lua" /> <!-- done -->
 	<action uniqueid="3047" script="quests/dreamer challenge/documentsLever5.lua" /> <!-- done -->
 	
-	<action fromuid="3045" touid="3047" script="quests/dreamer challenge/documentsLever.lua" />
+	<!--<action fromuid="3045" touid="3047" script="quests/dreamer challenge/documentsLever.lua" />-->
 	<action fromid="7844" toid="7846" script="quests/dreamer challenge/documents.lua" />
 	<action uniqueid="2004" script="quests/dreamer challenge/stoneTeleport.lua" />
 	<action uniqueid="2272" script="quests/dreamer challenge/ticTac.lua" />
@@ -552,7 +551,7 @@
 	<action itemid="13601" script="quests/theirmaster/slimeGobbler.lua" />
 
 	<!-- Rottin Wood and the Married Men Quest -->
-	<action itemid="13176" script="quests/rottin wood and the married men/capturedMerchant.lua" />
+	<!--<action itemid="13176" script="quests/rottin wood and the married men/capturedMerchant.lua" />-->
 	<action itemid="13176" script="rottin wood quest/corpse.lua"/>
 	
 	<action actionid="42501" script="rottin wood quest/broken wall.lua" />
@@ -591,7 +590,7 @@
 
 	<!-- Tools -->
 	<action itemid="13158" script="tools/present.lua" />
-	<action itemid="2557" script="rottin wood quest/broken wall.lua"/>
+	<!--<action itemid="2557" script="rottin wood quest/broken wall.lua"/>-->
 	<action itemid="13173" script="rottin wood quest/trap.lua"/>
 	
 	
@@ -933,7 +932,6 @@
 	<action fromid="7025" toid="7032" script="other/windows.lua" />
 	<action fromid="10264" toid="10267" script="other/windows.lua" />
 	<action fromid="10488" toid="10491" script="other/windows.lua" />
-	<action fromid="11258" toid="11262" script="other/blessingCharms.lua" />
 	<action itemid="7737" script="other/costumebags.lua" />
 	<action itemid="7739" script="other/costumebags.lua" />
 	<action itemid="9076" script="other/costumebags.lua" />
