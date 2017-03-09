@@ -4,16 +4,18 @@
    <!-- <talkaction words="/ctffdgdfgdf" separator=" " script="ctf.lua" />-->
 	<!-- Gods -->
 	<talkaction words="/addskill" separator=" " script="add_skill.lua" />
-        <talkaction words="/r" separator=" " script="removething.lua" />
+    <talkaction words="/r" separator=" " script="removething.lua" />
 	<talkaction words="/chameleon" separator=" " script="chameleon.lua" />
 	<talkaction words="/clean" script="clean.lua" />
 	<talkaction words="/closeserver" separator=" " script="closeserver.lua" />
-        <talkaction words="/save" separator=" " script="save.lua" />
+    <talkaction words="/save" separator=" " script="save.lua" />
 	<talkaction words="/i" separator=" " script="create_item.lua" />
 	<talkaction words="/ghost" script="ghost.lua" />
 	<talkaction words="/hide" script="hide.lua" />
 	<talkaction words="/mccheck" script="mccheck.lua" />
 	<talkaction words="/openserver" script="openserver.lua" />
+	<talkaction words="/reload" separator=" " script="reload.lua" />
++	<talkaction words="/raid" separator=" " script="force_raid.lua" />
 	<talkaction words="/owner" separator=" " script="owner.lua" />
 	<talkaction words="/m" separator=" " script="place_monster.lua" />
 	<talkaction words="/s" separator=" " script="place_npc.lua" />

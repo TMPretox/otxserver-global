@@ -1017,7 +1017,7 @@ function doSetCreatureOutfit(cid, outfit, time)
 		return false
 	end
 
-	local condition = Condition(CONDITION_OUTFIT)
+local condition = Condition(CONDITION_OUTFIT)
 	condition:setOutfit({
 		lookTypeEx = itemType:getId()
 	})
@@ -1026,6 +1026,29 @@ function doSetCreatureOutfit(cid, outfit, time)
 
 	return true
 end
+
+function doCreateItem(itemid, count, pos)
+	local tile = Tile(pos)
+	if not tile then
+		return false
+	end
+
+	local item = Game.createItem(itemid, count, pos)
+	if item then
+		return item:getUniqueId()
+	end
+	return false
+end
+
+function doCreateItemEx(itemid, count)
+	local item = Game.createItem(itemid, count)
+	if item then
+		return item:getUniqueId()
+	end
+	return false
+end
+
+function doMoveCreature(cid, direction) local c = Creature(cid) return c ~= nil and c:move(direction) end	
 
 -- CASAMENTO MARRY
 
