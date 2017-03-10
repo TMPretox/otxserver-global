@@ -249,7 +249,7 @@ local function creatureSayCallback(cid, type, msg)
 			npcHandler:say("Do you want to transform an umbral {mace} or umbral {hammer}?", cid)
 			npcHandler.topic[cid] = 2
 		end
-	elseif table.contains({"mace", "hammer"}, msg) and npcHandler.topic[cid] == 2 then
+	elseif isInArray({"mace", "hammer"}, msg) and npcHandler.topic[cid] == 2 then
 		weapon_sub[cid] = (msgcontains(msg, "mace") and SUB_TYPES.MACE or SUB_TYPES.HAMMER)
 		if action[cid] == ACTION.CREATE then
 			npcHandler:say("Do you want to spend your dream matter with " .. (Config.Create.Clusters > 1 and "those" or "your") .. " " .. Config.Create.Clusters .. " clusters of {solace} and give a shot. {Yes} or {no}", cid)

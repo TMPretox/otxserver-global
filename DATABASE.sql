@@ -494,6 +494,24 @@ CREATE TABLE `player_inboxitems` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `player_killers`
+--
+
+CREATE TABLE IF NOT EXISTS `player_killers` (
+  `kill_id` int(11) NOT NULL,
+  `player_id` int(11) NOT NULL,
+  KEY `kill_id` (`kill_id`),
+  KEY `player_id` (`player_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `player_killers`
+--
+
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `player_items`
 --
 
@@ -505,6 +523,25 @@ CREATE TABLE `player_items` (
   `count` smallint(5) NOT NULL DEFAULT '0',
   `attributes` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `player_kills`
+--
+
+CREATE TABLE IF NOT EXISTS `player_kills` (
+  `player_id` int(11) NOT NULL,
+  `time` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `target` int(11) NOT NULL,
+  `unavenged` tinyint(1) NOT NULL DEFAULT '0',
+  KEY `player_id` (`player_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `player_kills`
+--
+
 
 -- --------------------------------------------------------
 

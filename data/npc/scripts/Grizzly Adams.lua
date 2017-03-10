@@ -123,7 +123,7 @@ local function creatureSayCallback(cid, type, msg)
 			and player:getStorageValue(JOIN_STOR) ~= 1 then
 		player:setStorageValue(JOIN_STOR, 1)
 		npcHandler:say('Great!, now you can start tasks.', cid) --I'm not sure if this is as real tibia. I let this piece of code because it was in the original file.
-	elseif table.contains({'tasks', 'task', 'mission'}, msg:lower()) then
+	elseif isInArray({'tasks', 'task', 'mission'}, msg:lower()) then
 		local can = player:getTasks()
 		if player:getStorageValue(JOIN_STOR) == -1 then
 			return npcHandler:say('You\'ll have to {join}, to get any {tasks}.',cid)
@@ -206,17 +206,17 @@ local function creatureSayCallback(cid, type, msg)
 								deny = true
 							end
 						end
-						if table.contains({REWARD_MONEY, 'money'}, reward.type:lower()) and not deny then
+						if isInArray({REWARD_MONEY, 'money'}, reward.type:lower()) and not deny then
 							player:addMoney(reward.value[1])
-						elseif table.contains({REWARD_EXP, 'exp', 'experience'}, reward.type:lower()) and not deny then
+						elseif isInArray({REWARD_EXP, 'exp', 'experience'}, reward.type:lower()) and not deny then
 							player:addExperience(reward.value[1], true)
-						elseif table.contains({REWARD_ACHIEVEMENT, 'achievement', 'ach'}, reward.type:lower()) and not deny then
+						elseif isInArray({REWARD_ACHIEVEMENT, 'achievement', 'ach'}, reward.type:lower()) and not deny then
 							player:addAchievement(reward.value[1])
-						elseif table.contains({REWARD_STORAGE, 'storage', 'stor'}, reward.type:lower()) and not deny then
+						elseif isInArray({REWARD_STORAGE, 'storage', 'stor'}, reward.type:lower()) and not deny then
 							player:setStorageValue(reward.value[1], reward.value[2])
-						elseif table.contains({REWARD_POINT, 'points', 'point'}, reward.type:lower()) and not deny then
+						elseif isInArray({REWARD_POINT, 'points', 'point'}, reward.type:lower()) and not deny then
 							player:setStorageValue(POINTSSTORAGE, getPlayerTasksPoints(cid) + reward.value[1])
-						elseif table.contains({REWARD_ITEM, 'item', 'items', 'object'}, reward.type:lower()) and not deny then
+						elseif isInArray({REWARD_ITEM, 'item', 'items', 'object'}, reward.type:lower()) and not deny then
 							player:addItem(reward.value[1], reward.value[2])
 						end
 
@@ -306,7 +306,7 @@ local function creatureSayCallback(cid, type, msg)
 		else
 			npcHandler:say('You haven\'t started any task yet.', cid)
 		end
-	elseif getTaskByName(msg) and npcHandler.topic[cid] == 2 and table.contains(getPlayerStartedTasks(cid), getTaskByName(msg)) then
+	elseif getTaskByName(msg) and npcHandler.topic[cid] == 2 and isInArray(getPlayerStartedTasks(cid), getTaskByName(msg)) then
 		local task = getTaskByName(msg)
 		if player:getStorageValue(KILLSSTORAGE_BASE + task) > 0 then
 			npcHandler:say('You currently killed ' .. player:getStorageValue(KILLSSTORAGE_BASE + task) .. '/' .. tasks[task].killsRequired .. ' ' .. tasks[task].raceName .. '. Cancelling this task will restart the count. Are you sure you want to cancel this task?', cid)
@@ -315,7 +315,7 @@ local function creatureSayCallback(cid, type, msg)
 		end
 		npcHandler.topic[cid] = 3
 		cancel[cid] = task
-	elseif getTaskByName(msg) and npcHandler.topic[cid] == 1 and table.contains(getPlayerStartedTasks(cid), getTaskByName(msg)) then
+	elseif getTaskByName(msg) and npcHandler.topic[cid] == 1 and isInArray(getPlayerStartedTasks(cid), getTaskByName(msg)) then
 		local task = getTaskByName(msg)
 		if player:getStorageValue(KILLSSTORAGE_BASE + task) > 0 then
 			npcHandler:say('You currently killed ' .. player:getStorageValue(KILLSSTORAGE_BASE + task) .. '/' .. tasks[task].killsRequired .. ' ' .. tasks[task].raceName .. '.', cid)
@@ -328,14 +328,14 @@ local function creatureSayCallback(cid, type, msg)
 		player:setStorageValue(KILLSSTORAGE_BASE + cancel[cid], -1)
 		npcHandler:say('You have cancelled the task ' .. (tasks[cancel[cid]].name or tasks[cancel[cid]].raceName) .. '.', cid)
 		npcHandler.topic[cid] = 0
-	elseif table.contains({'points', 'rank'}, msg:lower()) then
+	elseif isInArray({'points', 'rank'}, msg:lower()) then
 		if player:getPawAndFurPoints() < 1 then
 			npcHandler:say('At this time, you have ' .. player:getPawAndFurPoints() .. ' Paw & Fur points. You ' .. (player:getPawAndFurRank() == 6 and 'are an Elite Hunter' or player:getPawAndFurRank() == 5 and 'are a Trophy Hunter' or player:getPawAndFurRank() == 4 and 'are a Big Game Hunter' or player:getPawAndFurRank() == 3 and 'are a Ranger' or player:getPawAndFurRank() == 2 and 'are a Huntsman' or player:getPawAndFurRank() == 1 and 'are a Member'  or 'haven\'t been ranked yet') .. '.', cid)
 		else
 			npcHandler:say('At this time, you have ' .. player:getPawAndFurPoints() .. ' Paw & Fur points. You ' .. (player:getPawAndFurRank() == 6 and 'are an Elite Hunter' or player:getPawAndFurRank() == 5 and 'are a Trophy Hunter' or player:getPawAndFurRank() == 4 and 'are a Big Game Hunter' or player:getPawAndFurRank() == 3 and 'are a Ranger' or player:getPawAndFurRank() == 2 and 'are a Huntsman' or player:getPawAndFurRank() == 1 and 'are a Member'  or 'haven\'t been ranked yet') .. '.', cid)
 		end
 		npcHandler.topic[cid] = 0
-	elseif table.contains({'special task'}, msg:lower()) then
+	elseif isInArray({'special task'}, msg:lower()) then
 		if player:getPawAndFurPoints() >= 69 then -- Tiquandas Revenge 90 points
 			if player:getStorageValue(Storage.KillingInTheNameOf.MissionTiquandasRevenge) == 1 then  -- Check if he has already started the task.
 				npcHandler:say('You have already started the task. Go find Tiquandas Revenge and take revenge yourself!', cid)

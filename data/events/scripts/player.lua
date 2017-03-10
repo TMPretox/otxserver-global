@@ -20,16 +20,18 @@ function Player:onLook(thing, position, distance)
 				description = string.format("%s, Action ID: %d", description, actionId)
 			end
 	
-		if thing:isCreature() and thing:isPlayer() then
-			description = string.format("%s\n [PVP Kills: %d] \n [PVP Deaths: %d] \n",
+	-- KD look 
+	 if thing:isCreature() and thing:isPlayer() then
+        description = string.format("%s\n [PVP Kills: %d] \n [PVP Deaths: %d] \n",
             description, math.max(0, thing:getStorageValue(167912)), math.max(0, thing:getStorageValue(167913)))
-			end
+    end
 	
-		if LOOK_MARRIAGE_DESCR and thing:isCreature() then
-		if thing:isPlayer() then
-			description = description .. self:getMarriageDescription(thing)
-			end
-		end
+	-- MARRY 
+	if LOOK_MARRIAGE_DESCR and thing:isCreature() then
+	if thing:isPlayer() then
+	description = description .. self:getMarriageDescription(thing)
+	end
+end
 
 			local uniqueId = thing:getAttribute(ITEM_ATTRIBUTE_UNIQUEID)
 			if uniqueId > 0 and uniqueId < 65536 then
@@ -92,6 +94,18 @@ function Player:onLookInBattleList(creature, distance)
 			description = string.format("%s\nIP: %s", description, Game.convertIpToString(creature:getIp()))
 		end
 	end
+	-- KD look 
+	 if creature:isPlayer() and creature:isCreature() then
+        description = string.format("%s\n [PVP Kills: %d] \n [PVP Deaths: %d] \n",
+            description, math.max(0, creature:getStorageValue(167912)), math.max(0, creature:getStorageValue(167913)))
+    end
+	
+	-- MARRY  
+	if LOOK_MARRIAGE_DESCR and creature:isCreature() then
+if creature:isPlayer() then
+description = description .. self:getMarriageDescription(creature)
+end
+end
 	self:sendTextMessage(MESSAGE_INFO_DESCR, description)
 end
 

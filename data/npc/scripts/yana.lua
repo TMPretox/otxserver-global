@@ -166,11 +166,11 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "gold") and npcHandler.topic[cid] == 0 then
 		npcHandler:say("What weapon enhance would you like? We have {carving}, {mayhem} and {remedy}.", cid)
 		npcHandler.topic[cid] = 1
-	elseif	table.contains(weaponEnhance, msg:lower()) and npcHandler.topic[cid] == 1 then
+	elseif	isInArray(weaponEnhance, msg:lower()) and npcHandler.topic[cid] == 1 then
 		weaponEnhanceChoose[cid] = msg:lower()
 		npcHandler:say(weaponEnhanceChoose[cid]:gsub("^%l", string.upper) .. " nice! Choose a weapon type: {axe}, {blade}, {bow}, {chopper}, {crossbow}, {hammer}, {mace}, {rod}, {slayer} or {wand}.", cid)	
 		npcHandler.topic[cid] = 2
-	elseif	table.contains(weaponType, msg:lower()) and npcHandler.topic[cid] == 2 then
+	elseif	isInArray(weaponType, msg:lower()) and npcHandler.topic[cid] == 2 then
 		weaponTypeChoose[cid] = msg:lower()
 		npcHandler:say(weaponTypeChoose[cid]:gsub("^%l", string.upper) .. " of " .. weaponEnhanceChoose[cid]:gsub("^%l", string.upper) .. " will cost " .. weapon[weaponTypeChoose[cid]].price .. " tokens. Would you like it?", cid)
 		npcHandler.topic[cid] = 3
@@ -193,15 +193,15 @@ local function creatureSayCallback(cid, type, msg)
 	elseif msgcontains(msg, "charge") and npcHandler.topic[cid] == 0 then
 		npcHandler:say("What charge would you like? I can offer {charged}, {heavilycharged} and {overcharged}.", cid)
 		npcHandler.topic[cid] = 6
-	elseif	table.contains(weaponCharge, msg:lower()) and npcHandler.topic[cid] == 6 then
+	elseif	isInArray(weaponCharge, msg:lower()) and npcHandler.topic[cid] == 6 then
 		weaponChargeChoose[cid] = msg:lower()
 		npcHandler:say(weaponChargeChoose[cid]:gsub("^%l", string.upper) .. " nice! What is your weapon type? {axe}, {blade}, {bow}, {chopper}, {crossbow}, {hammer}, {mace}, {rod}, {slayer} or {wand}.", cid)	
 		npcHandler.topic[cid] = 7
-	elseif	table.contains(weaponType, msg:lower()) and npcHandler.topic[cid] == 7 then
+	elseif	isInArray(weaponType, msg:lower()) and npcHandler.topic[cid] == 7 then
 		weaponTypeChoose[cid] = msg:lower()
 		npcHandler:say(weaponTypeChoose[cid]:gsub("^%l", string.upper) .. " of {Carving}, {Mayhem} or {Remedy} ?", cid)
 		npcHandler.topic[cid] = 8
-	elseif	table.contains(weaponEnhance, msg:lower()) and npcHandler.topic[cid] == 8 then
+	elseif	isInArray(weaponEnhance, msg:lower()) and npcHandler.topic[cid] == 8 then
 		weaponEnhanceChoose[cid] = msg:lower()
 		chargetypechoose[cid] = weapon[weaponTypeChoose[cid]]
 		if weaponChargeChoose[cid] == "charged" then

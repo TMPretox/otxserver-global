@@ -10,7 +10,7 @@ function onThink()		npcHandler:onThink()		end
 local function creatureSayCallback(cid, type, msg)
 	if not npcHandler:isFocused(cid) then
 		return false
-	elseif table.contains({"trip", "passage", "back"}, msg) then
+	elseif isInArray({"trip", "passage", "back"}, msg) then
 		--if Player(cid):getStorageValue(Storage.TheNewFrontier.Questline) >= 24 then
 			npcHandler:say("You want to go back?", cid)
 			npcHandler.topic[cid] = 1
